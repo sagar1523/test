@@ -1,362 +1,469 @@
 {
-  "openapi": "3.1.0",
-  "info": {
-    "title": "dhruva",
-    "version": "1.0"
-  },
-  "servers": [
-    {
-      "url": "http://localhost:5001"
+    "openapi": "3.0.0",
+    "info": {
+        "title": "dhruva",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000"
+        }
+    ],
+    "paths": {
+        "/users": {
+            "get": {
+                "summary": "gets all users currently registered (admin only)",
+                "tags": [
+                    "users"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "get-users",
+                "description": ""
+            },
+            "post": {
+                "summary": "Create a new user",
+                "operationId": "post-users",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "description": "Create a new user",
+                "tags": [
+                    "users"
+                ]
+            }
+        },
+        "/users/{userId}": {
+            "parameters": [
+                {
+                    "schema": {
+                        "type": "string"
+                    },
+                    "name": "userId",
+                    "in": "path",
+                    "required": true
+                }
+            ],
+            "get": {
+                "summary": "get the profile of the specified user",
+                "tags": [
+                    "users"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "get-users-userId",
+                "x-internal": false
+            },
+            "patch": {
+                "summary": "update the profile of the user",
+                "tags": [
+                    "users"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "patch-users-userId"
+            },
+            "delete": {
+                "summary": "Delete a user",
+                "operationId": "delete-users-userId",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "description": "Delete a user",
+                "tags": [
+                    "users"
+                ]
+            }
+        },
+        "/organizations": {
+            "get": {
+                "summary": "get an organization",
+                "tags": [
+                    "organisations"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "get-organizations"
+            },
+            "post": {
+                "summary": "create a new organisation owned by current user(100%)",
+                "tags": [
+                    "organisations"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "post-organizations"
+            }
+        },
+        "/organisations/{organisationId}": {
+            "parameters": [
+                {
+                    "schema": {
+                        "type": "string"
+                    },
+                    "name": "organisationId",
+                    "in": "path",
+                    "required": true
+                }
+            ],
+            "get": {
+                "summary": "Get details of an organisation",
+                "tags": [
+                    "organisations"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "get-organisations-organisationId"
+            },
+            "patch": {
+                "summary": "update an organisation",
+                "tags": [
+                    "organisations"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "patch-organisations-organisationId"
+            },
+            "delete": {
+                "summary": "delete an organisation",
+                "tags": [
+                    "organisations"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "delete-organisations-organisationId"
+            }
+        },
+        "/companies": {
+            "get": {
+                "summary": "get all companies",
+                "tags": [
+                    "companies"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "get-companies"
+            },
+            "post": {
+                "summary": "create a new company",
+                "tags": [
+                    "companies"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "post-companies"
+            }
+        },
+        "/companies/{companyId}": {
+            "parameters": [
+                {
+                    "schema": {
+                        "type": "string"
+                    },
+                    "name": "companyId",
+                    "in": "path",
+                    "required": true
+                }
+            ],
+            "get": {
+                "summary": "Get details of a company",
+                "tags": [
+                    "companies"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "get-companies-companyId"
+            },
+            "patch": {
+                "summary": "update the company",
+                "tags": [
+                    "companies"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "patch-companies-companyId"
+            },
+            "delete": {
+                "summary": "delete the company",
+                "tags": [
+                    "companies"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "delete-companies-companyId"
+            }
+        },
+        "/subsidiaries": {
+            "get": {
+                "summary": "get all subsidiaries",
+                "tags": [
+                    "subsidairies"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "get-subsidairies"
+            },
+            "post": {
+                "summary": "create a new subsidiary",
+                "tags": [
+                    "subsidairies"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "post-subsidairies"
+            },
+            "parameters": []
+        },
+        "/subsidiaries/{subsidiaryId}": {
+            "parameters": [
+                {
+                    "schema": {
+                        "type": "string"
+                    },
+                    "name": "subsidiaryId",
+                    "in": "path",
+                    "required": true
+                }
+            ],
+            "get": {
+                "summary": "Get the details of the subsidiary",
+                "tags": [
+                    "subsidiaries"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "get-subsidiaries-subsidiaryId"
+            },
+            "patch": {
+                "summary": "update the details of the subsidairy",
+                "tags": [
+                    "subsidiaries"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "patch-subsidiaries-subsidiaryId"
+            },
+            "delete": {
+                "summary": "delete the subsidairy",
+                "tags": [
+                    "subsidiaries"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "delete-subsidiaries-subsidiaryId"
+            }
+        },
+        "/facilities": {
+            "get": {
+                "summary": "get all the facility",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "get-facilities",
+                "tags": [
+                    "facilities"
+                ]
+            },
+            "post": {
+                "summary": "create a new facility",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "post-facilities",
+                "tags": [
+                    "facilities"
+                ]
+            }
+        },
+        "/facilities/{facilityId}": {
+            "parameters": [
+                {
+                    "schema": {
+                        "type": "string"
+                    },
+                    "name": "facilityId",
+                    "in": "path",
+                    "required": true
+                }
+            ],
+            "get": {
+                "summary": "Get the details of the facility",
+                "tags": [
+                    "facilities"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "get-facilities-facilityId"
+            },
+            "patch": {
+                "summary": "update the details of the facility",
+                "tags": [
+                    "facilities"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "patch-facilities-facilityId"
+            },
+            "delete": {
+                "summary": "delete the facility",
+                "tags": [
+                    "facilities"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "delete-facilities-facilityId"
+            }
+        },
+        "/spaces": {
+            "get": {
+                "summary": "get all the spaces",
+                "tags": [
+                    "spaces"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "get-spaces"
+            },
+            "post": {
+                "summary": "create a new space",
+                "tags": [
+                    "spaces"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "post-spaces"
+            }
+        },
+        "/spaces/{spaceId}": {
+            "parameters": [
+                {
+                    "schema": {
+                        "type": "string"
+                    },
+                    "name": "spaceId",
+                    "in": "path",
+                    "required": true
+                }
+            ],
+            "get": {
+                "summary": "Get the details of spaces",
+                "tags": [
+                    "spaces",
+                    ""
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "get-spaces-spaceId"
+            },
+            "patch": {
+                "summary": "update the details of the space",
+                "tags": [
+                    "spaces",
+                    ""
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "patch-spaces-spaceId"
+            },
+            "delete": {
+                "summary": "delete a space",
+                "tags": [
+                    "spaces",
+                    ""
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "operationId": "delete-spaces-spaceId"
+            }
+        }
+    },
+    "components": {
+        "schemas": {}
     }
-  ],
-  "paths": {
-    "/users": {
-      "get": {
-        "summary": "gets all users currently registered (admin only)",
-        "tags": [
-          "users"
-        ],
-        "responses": {},
-        "operationId": "get-users"
-      },
-      "post": {
-        "summary": "",
-        "operationId": "post-users",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "description": "Create a new user"
-      }
-    },
-    "/users/{userId}": {
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "userId",
-          "in": "path",
-          "required": true
-        }
-      ],
-      "get": {
-        "summary": "get the profile of the specified user",
-        "tags": [
-          "users"
-        ],
-        "responses": {},
-        "operationId": "get-users-userId"
-      },
-      "patch": {
-        "summary": "update the profile of the user",
-        "tags": [
-          "users"
-        ],
-        "responses": {},
-        "operationId": "patch-users-userId"
-      },
-      "delete": {
-        "summary": "",
-        "operationId": "delete-users-userId",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "description": "Delete a user"
-      }
-    },
-    "/organizations": {
-      "get": {
-        "summary": "get an organization",
-        "tags": [
-          "organisations"
-        ],
-        "responses": {},
-        "operationId": "get-organizations"
-      },
-      "post": {
-        "summary": "create a new organisation owned by current user(100%)",
-        "tags": [
-          "organisations"
-        ],
-        "responses": {},
-        "operationId": "post-organizations"
-      }
-    },
-    "/organisations/{organisationId}": {
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "organisationId",
-          "in": "path",
-          "required": true
-        }
-      ],
-      "get": {
-        "summary": "Get details of an organisation",
-        "tags": [
-          "organisations"
-        ],
-        "responses": {},
-        "operationId": "get-organisations-organisationId"
-      },
-      "patch": {
-        "summary": "update an organisation",
-        "tags": [
-          "organisations"
-        ],
-        "responses": {},
-        "operationId": "patch-organisations-organisationId"
-      },
-      "delete": {
-        "summary": "delete an organisation",
-        "tags": [
-          "organisations"
-        ],
-        "responses": {},
-        "operationId": "delete-organisations-organisationId"
-      }
-    },
-    "/companies": {
-      "get": {
-        "summary": "get all companies",
-        "tags": [
-          "companies"
-        ],
-        "responses": {},
-        "operationId": "get-companies"
-      },
-      "post": {
-        "summary": "create a new company",
-        "tags": [
-          "companies"
-        ],
-        "responses": {},
-        "operationId": "post-companies"
-      }
-    },
-    "/companies/{companyId}": {
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "companyId",
-          "in": "path",
-          "required": true
-        }
-      ],
-      "get": {
-        "summary": "Get details of a company",
-        "tags": [
-          "companies"
-        ],
-        "responses": {},
-        "operationId": "get-companies-companyId"
-      },
-      "patch": {
-        "summary": "update the company",
-        "tags": [
-          "companies"
-        ],
-        "responses": {},
-        "operationId": "patch-companies-companyId"
-      },
-      "delete": {
-        "summary": "delete the company",
-        "tags": [
-          "companies"
-        ],
-        "responses": {},
-        "operationId": "delete-companies-companyId"
-      }
-    },
-    "/subsidairies": {
-      "get": {
-        "summary": "get all subsidiaries",
-        "tags": [
-          "subsidairies"
-        ],
-        "responses": {},
-        "operationId": "get-subsidairies"
-      },
-      "post": {
-        "summary": "create a new subsidiary",
-        "tags": [
-          "subsidairies"
-        ],
-        "responses": {},
-        "operationId": "post-subsidairies"
-      }
-    },
-    "/subsidiaries/{subsidiaryId}": {
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "subsidiaryId",
-          "in": "path",
-          "required": true
-        }
-      ],
-      "get": {
-        "summary": "Get the details of the subsidiary",
-        "tags": [
-          "subsidiaries"
-        ],
-        "responses": {},
-        "operationId": "get-subsidiaries-subsidiaryId"
-      },
-      "patch": {
-        "summary": "update the details of the subsidairy",
-        "tags": [
-          "subsidiaries"
-        ],
-        "responses": {},
-        "operationId": "patch-subsidiaries-subsidiaryId"
-      },
-      "delete": {
-        "summary": "delete the subsidairy",
-        "tags": [
-          "subsidiaries"
-        ],
-        "responses": {},
-        "operationId": "delete-subsidiaries-subsidiaryId"
-      }
-    },
-    "/facilities": {
-      "get": {
-        "summary": "get all the facility",
-        "tags": [
-          "",
-          "facilities"
-        ],
-        "responses": {},
-        "operationId": "get-facilities"
-      },
-      "post": {
-        "summary": "create a new facility",
-        "tags": [
-          "",
-          "facilities"
-        ],
-        "responses": {},
-        "operationId": "post-facilities"
-      }
-    },
-    "/facilities/{facilityId}": {
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "facilityId",
-          "in": "path",
-          "required": true
-        }
-      ],
-      "get": {
-        "summary": "Get the details of the facility",
-        "tags": [
-          "facilities"
-        ],
-        "responses": {},
-        "operationId": "get-facilities-facilityId"
-      },
-      "patch": {
-        "summary": "update the details of the facility",
-        "tags": [
-          "facilities"
-        ],
-        "responses": {},
-        "operationId": "patch-facilities-facilityId"
-      },
-      "delete": {
-        "summary": "delete the facility",
-        "tags": [
-          "facilities"
-        ],
-        "responses": {},
-        "operationId": "delete-facilities-facilityId"
-      }
-    },
-    "/spaces": {
-      "get": {
-        "summary": "get all the spaces",
-        "tags": [],
-        "responses": {},
-        "operationId": "get-spaces"
-      },
-      "post": {
-        "summary": "create a new space",
-        "tags": [],
-        "responses": {},
-        "operationId": "post-spaces"
-      }
-    }
-  },
-  "components": {
-    "schemas": {
-      "User": {
-        "title": "User",
-        "type": "object",
-        "description": "",
-        "examples": [
-          {
-            "id": 142,
-            "firstName": "Alice",
-            "lastName": "Smith",
-            "email": "alice.smith@gmail.com",
-            "dateOfBirth": "1997-10-31",
-            "emailVerified": true,
-            "signUpDate": "2019-08-24"
-          }
-        ],
-        "properties": {
-          "id": {
-            "type": "integer",
-            "description": "Unique identifier for the given user."
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "email": {
-            "type": "string",
-            "format": "email"
-          },
-          "dateOfBirth": {
-            "type": "string",
-            "format": "date",
-            "example": "1997-10-31"
-          },
-          "emailVerified": {
-            "type": "boolean",
-            "description": "Set to true if the user's email has been verified."
-          },
-          "createDate": {
-            "type": "string",
-            "format": "date",
-            "description": "The date that the user was created."
-          }
-        },
-        "required": [
-          "id",
-          "firstName",
-          "lastName",
-          "email",
-          "emailVerified"
-        ]
-      }
-    },
-    "securitySchemes": {}
-  }
 }
