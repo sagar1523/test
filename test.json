@@ -958,7 +958,11 @@
         "tags": [
           "auth"
         ],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
         "operationId": "get-auth-forget_password"
       }
     },
@@ -968,7 +972,11 @@
         "tags": [
           "auth"
         ],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
         "operationId": "post-auth-reset_password",
         "requestBody": {
           "content": {
@@ -1001,7 +1009,11 @@
         "tags": [
           "auth"
         ],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
         "operationId": "get-auth-request-otp"
       }
     },
@@ -1011,7 +1023,11 @@
         "tags": [
           "auth"
         ],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
         "operationId": "post-auth-verify-otp",
         "requestBody": {
           "content": {
